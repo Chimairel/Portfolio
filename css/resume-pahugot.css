@@ -1,0 +1,188 @@
+.back-ground{
+    background-image: url(../images/van.gif);
+    background-repeat: no-repeat ;
+    background-size: cover;
+}
+.container{
+    width: 15%;
+    height: 80%;
+    background-color: rgb(241, 140, 7);
+    position: absolute;
+    top: 100px;
+    left: 350px;
+    border-right: 10px solid blueviolet;
+    border-top-left-radius: 10px;
+    border: solid aqua;
+}
+.profile-picture img{
+    position: absolute;
+    width: 200px;
+    height: 180px;
+    border-radius: 50%;
+    top: 30px;
+    left: 25px;
+    border-color: black;
+    border: 2px solid black;
+}
+.container-2{
+    width: 40%;
+    height: 80%;
+    background-color: rgb(13, 96, 248);
+    position: absolute;
+    top: 100px;
+    left: 610px;
+    border-top-right-radius: 10px;
+    border: solid yellow;
+}
+.wa-rajud{
+    position: absolute;
+    top: 200px;
+    left: 70px;
+}
+.wa-rajud h1{
+    position: relative;
+    top: 2px;
+    left: -20px;
+}
+.wa-rajud p{
+    position: absolute;
+    top: 50px;
+    left: -20px;
+    width: 200px;
+}
+.line{
+    position: absolute;
+    width: 200%;
+    left: -70px;
+    top: 50px;
+    border-color: aqua;
+}
+.line-1{
+    position: absolute;
+    width: 200%;
+    left: -70px;
+    top: 260px;
+    border-color: aqua;
+}
+.line-2{
+    position: absolute;
+    width: 200%;
+    left: -70px;
+    top: 340px;
+    border-color: aqua;
+}
+.adress{
+    position: absolute;
+    top: 250px;
+    left: -20px;
+    width: 200px;
+}
+.about p{
+    position: absolute;
+    top: 270px;
+    right: 350px;
+}
+.skills{
+    position: absolute;
+    top: 330px;
+    left: 10px;
+    width: 200px;
+}
+.para-ul{
+    position: absolute;
+    left: -80px;
+}
+.container-3{
+    width: 95%;
+    height: 95%;
+    background-image: url(../images/starry2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 13px;
+    left: 12px;
+    border: 5px solid rgb(247, 162, 6);
+    color: white;
+}
+.container-3 h1{
+    text-align: center;
+    position: relative;
+    margin-top: 20px;
+}
+.container-3 p{
+    text-align: center;
+    padding-left: 20px;
+}
+.logo img{
+    position: absolute;
+    width: 150px;
+    height: 120px;
+    left: 5px;
+}
+.logo-1 img{
+    position: absolute;
+    width: 150px;
+    height: 120px;
+    left: 5px;
+    bottom: 250px;
+}
+.container-3 ul{
+    position: relative;
+    top: -15px;
+}
+.achievements{
+    position: relative;
+    margin-left: 255px;
+    bottom: 85px;
+}
+.schoolyear{
+    position: relative;
+    margin-left: 500px;
+    bottom: 170px;
+}
+.container-3 h2{
+    position: relative;
+    margin-left: 10px;
+}
+.highschool h2{
+    position: relative;
+    top: -195px;
+    left: 3px;
+}
+.highschool ul{
+    position: relative;
+    top: -210px;
+    left: -3px;
+}
+.achievements-1 ul{
+    position: relative;
+    top: -245px;
+    left: 255px;
+}
+.schoolyear-1 ul{
+    position: relative;
+    top: -280px;
+    left: 500px;
+}
+.college{
+    position: relative;
+    top: -290px;
+    left: -3px;
+}
+.achievements-2 ul{
+    position: relative;
+    top: -340px;
+    left: 255px;
+}
+.schoolyear-2 ul{
+    position: relative;
+    top: -375px;
+    left: 500px;
+}
+.objectives{
+    position: relative;
+    top: -320px;
+}
+.objectives{
+    font-size: 20px;
+}
