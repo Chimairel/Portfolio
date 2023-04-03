@@ -1,0 +1,538 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0 10% 0 10%;
+    font-family: 'Poppins', sans-serif;
+}
+#main {
+    border: solid;
+    display: flex;
+    flex-direction: column;
+}
+.top {
+    border-bottom: solid;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    gap: 30px;
+    background-color: #b9b9b9;
+}
+.logo {
+    width: 30px;
+}
+.top a {
+    display: inline-block;
+    list-style: none;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+}
+.circles {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-between;
+}
+.c1 {
+    border: solid;
+    border-radius: 80px;
+    position: relative;
+    left: 480px;
+    width: 25px;
+    height: 25px;
+    background-color: white;
+}
+#home {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 80px;
+    gap: 50px;
+}
+#home h1 {
+    font-size: 60px;
+
+}
+#home p {
+    font-size: 20px;
+    margin-top: 10px;
+}
+#home img {
+    width: 45%;
+    height: 55vh;
+}
+#title-1, #title-2, #title-3 {
+    display: flex;
+    flex-direction: row;
+    margin: 0 50px 20px 90px;
+}
+.as-title-1 {
+    background-image: url(../images/griddd.jpg);
+}
+.as-title-1, .proj-title-1, .con-title-1 {
+    border: solid;
+    width: 25%;
+}
+.as-title-1 a {
+    color: black;
+    text-decoration: none;
+}
+.proj-title-1 a, .con-title-1 a {
+    color: white;
+    text-decoration: none;
+}
+.proj-title-1, .con-title-1 {
+    border-left: none;
+    color: white;
+    background-color: black;
+}
+.as-title-1 h3, .proj-title-1 h3, .con-title-1 h3 {
+    font-size: 40px;
+    padding: 5px;
+}
+
+/*----------------------------------- About Us ----------------------------------*/
+#contents {
+    border-top: solid;
+    border-bottom: solid;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    background-image: url(../images/griddd.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    align-items: start;
+    justify-content: start;
+    padding-top: 20px;
+}
+#About-us {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 10px;
+}
+/*------------------------------ Chimairel -----------------------------------*/
+
+.chimairel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 20px;
+}
+.pacaldo {
+    border: solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 95%;
+
+}
+.head {
+    border-bottom: solid;
+    width: 100%;
+    background-color: rgb(177, 161, 161);
+    padding: 10px;
+}
+.pacaldo img {
+    width: 100%;
+}
+.pacaldo .pacaldo-profile {
+    width: 30%;
+    height: 22vh;
+    border-radius: 10px;
+    background-image: url(../images/pacaldo.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: solid white;
+    border-radius: 180px;
+    border-width: 5px;
+    position: relative;
+    bottom: 70px;
+    right: 130px;
+}
+.pacaldo-info {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-self: center;
+}
+.pacaldo-info h3 {
+    align-self: center;
+    position: relative;
+    left: 80px;
+    bottom: 120px;
+    font-size: 23px;
+    margin-right: 50px;
+}
+.pacaldo-info p {
+    align-self: center;
+    position: relative;
+    bottom: 70px;
+    font-size: 15px;
+    line-height: 30px;
+}
+.c2 {
+    border: solid;
+    position: relative;
+    bottom: 518px;
+    left: 180px;
+    border-radius: 80px;
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    background-image: url(../images/griddd.jpg);
+}
+
+/*------------------------------- John Ronvie -----------------------------*/
+
+.ronvie {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 20px;
+}
+.pahugot {
+    border: solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 95%;
+
+}
+.head {
+    border-bottom: solid;
+    width: 100%;
+    background-color: rgb(177, 161, 161);
+    padding: 10px;
+}
+.pahugot img {
+    width: 100%;
+}
+.pahugot .pahugot-profile {
+    width: 30%;
+    height: 22vh;
+    border-radius: 10px;
+    background-image: url(../images/pahugot.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: solid white;
+    border-radius: 180px;
+    border-width: 5px;
+    position: relative;
+    bottom: 70px;
+    right: 130px;
+}
+.pahugot-info {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-self: center;
+}
+.pahugot-info h3 {
+    align-self: center;
+    position: relative;
+    left: 70px;
+    bottom: 120px;
+    font-size: 23px;
+    margin-right: 50px;
+}
+.pahugot-info p {
+    align-self: center;
+    position: relative;
+    bottom: 70px;
+    font-size: 16px;
+    line-height: 30px;
+}
+.c3 {
+    border: solid;
+    position: relative;
+    bottom: 515px;
+    left: 175px;
+    border-radius: 80px;
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    background-image: url(../images/griddd.jpg);
+}
+.as-title-2, .proj-title-2, .con-title-2 {
+    border: solid;
+    width: 25%;
+    margin-top: 100px;
+}
+.proj-title-2 {
+    background-image: url(../images/proj-background.jpg);
+}
+.as-title-2, .con-title-2 {
+    border-left: none;
+    color: white;
+    background-color: black;
+}
+.as-title-2 h3, .proj-title-2 h3, .con-title-2 h3 {
+    font-size: 40px;
+    padding: 5px;
+}
+.as-title-2 a, .con-title-2 a {
+    color: white;
+    text-decoration: none;
+}
+.proj-title-2 a {
+    color: black;
+    text-decoration: none;
+}
+
+/*----------------------- Projects ----------------------------*/
+
+#projects {
+    border-top: solid;
+    border-bottom: solid;
+    background-image: url(../images/proj-background.jpg);
+    margin-top: 15px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.resume {
+    border: solid;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 50px;
+}
+.resume-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.resume-info h3 {
+    font-size: 60px;
+    margin-left: 30px;
+}
+.btn {
+    position: relative;
+    border: solid black;
+    margin-left: 30px;
+    font-size: 25px;
+    padding: 5px 5px 5px 10px;
+    color: black;
+    text-decoration: none;
+    background: transparent;
+    transition: 0.4s all ease-in-out 0s;
+    margin-top: 10px;
+}
+.btn:hover {
+    color: black;
+    background-color: #ffad01;
+}
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: #ffad01;
+    transition: 0.4s all ease-in-out 0s;
+}
+.slide::before {
+    left: unset;
+    right: 0;
+    width: 0;
+}
+.slide:hover::before {
+    right: unset;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.resume-pic {
+    border-left: solid;
+    background-image: url(../images/resume.jpg);
+    background-position: center;
+    background-size: cover;
+    width: 55%;
+    height: 80vh;
+    align-self: end;
+}
+.projects-row {
+    display: flex;
+    flex-direction: row;
+}
+.tribute {
+    width: 45%;
+    border: solid;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 10px 10px 50px 50px;
+    padding-bottom: 30px;
+
+}
+.tribute h3 {
+    font-size: 50px;
+    margin: 10px 10px 15px 30px;
+}
+.tribute-pic {
+    border-bottom: solid;
+    background-image: url(../images/Tribute.jpg);
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 25vh;
+    align-self: top;  
+}
+
+.Exercise2 {
+    width: 55%;
+    border: solid;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 50px 50px 10px;
+    padding-bottom: 30px;
+
+}
+.Exercise2 h3 {
+    font-size: 50px;
+    margin: 10px 10px 15px 10px;
+}
+.Exercise2 p {
+    margin-top: 20px;
+    margin-left: 10px;
+
+}
+.Exercise2 a {
+    margin-left: 10px;
+}
+.exercise-pic {
+    border-bottom: solid;
+    background-image: url(../images/exercise-pic.png);
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 40vh;
+    margin: 15px 15px 1px 15px;
+}
+.con-title-3 {
+    background-color: #e1a14a;
+}
+.as-title-3, .proj-title-3, .con-title-3 {
+    border: solid;
+    width: 25%;
+    margin-top: 100px;
+}
+.proj-title-3 a, .as-title-3 a {
+    color: white;
+    text-decoration: none;
+}
+.proj-title-3, .as-title-3 {
+    border-left: none;
+    color: white;
+    background-color: black;
+}
+.as-title-3 h3, .proj-title-3 h3, .con-title-3 h3 {
+    font-size: 40px;
+    padding: 5px;
+}
+
+/*--------------------------- Contacts ----------------------------------*/
+#contacts {
+    border-top: solid;
+    margin-top: 15px;
+}
+.container {
+    margin: 0 50px 0 50px;
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-evenly;
+}
+.contact-left {
+    flex-basis: 35%;
+    margin-top: 50px;
+}
+.contact-left h2 {
+    font-size: 50px;
+}
+.contact-left p {
+    font-size: 25px;
+}
+.contact-right {
+    flex-basis: 60%;
+}
+.contact-left p {
+    margin-top: 30px;
+}
+.contact-left p i {
+    color: #e1a14a;
+    margin-right: 15px;
+    font-size: 25px;
+}
+.social-icons {
+    margin-top: 30px;
+}
+.social-icons a {
+    text-decoration: none;
+    font-size: 30px;
+    margin-right: 15px;
+    color: #ababab;
+    display: inline-block;
+    transition: transform 0.5s;
+}
+.social-icons a:hover {
+    color: #e1a14a;
+    transform: translateY(-5px);
+}
+.button.btn2 {
+    display: inline-block;
+    background: #e1a14a;
+    border: 2px solid black;
+}
+.contact-right form {
+    width: 100%;
+    margin-top: 50px;
+}
+form input, form textarea {
+    width: 85%;
+    border: 0;
+    outline: none;
+    border: solid;
+    padding: 15px;
+    color: black;
+    font-size: 18px;
+}
+form .btn2 {
+    padding: 14px 50px;
+    font-size: 17px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.copyright {
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    background: #262626;
+    font-weight: 300;
+    margin-top: 20px;
+    color: white;
+}
+.copyright i {
+    color: #e1a14a;
+}
