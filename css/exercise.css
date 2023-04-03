@@ -1,0 +1,13 @@
+.color-red {
+    color: red;
+}
+.imgs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.imgs img{
+    width: 400px;
+    height: 400px;
+}
