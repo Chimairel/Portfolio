@@ -66,7 +66,7 @@ export function BlogCategoryContent({ activeCategories, filteredPosts, mainCateg
               currentItems.map((post) => (
                 <div key={post.id} className="flex flex-col md:flex-row border-2 border-border bg-card transition-colors duration-200 hover:shadow-[4px_4px_0px_0px_var(--color-border)] group">
                   <div className="relative w-full md:w-1/4 aspect-video md:aspect-auto border-b-2 md:border-b-0 md:border-r-2 border-border bg-muted flex-shrink-0 overflow-hidden">
-                    <Image src={post.image} alt={post.title} fill sizes="(max-width: 768px) 100vw, 25vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <Image src={post.image} alt={post.title} fill sizes="(max-width: 768px) 100vw, 25vw" className="object-cover transition-transform duration-500" />
                   </div>
                   <div className="p-4 flex flex-col flex-grow justify-between gap-2">
                     <div>

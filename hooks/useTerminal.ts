@@ -31,7 +31,7 @@ export function useTerminal(currentDirectory: string = "about") {
     const executeCommand: Record<string, () => string | void> = {
       cls: () => setHistory([]),
       clear: () => setHistory([]),
-      help: () => "Supported commands: cd <path>, cls, clear, help",
+      help: () => "Supported commands: cd <path ex: /projects>, cls, clear, help",
       
       cd: () => {
         const target = args[0];

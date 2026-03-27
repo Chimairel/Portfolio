@@ -2,7 +2,7 @@ export function Connections() {
   const cards = [
     {
       title: "Phone Number",
-      value: "+63 900 000 0000",
+      value: "+63 920 126 4097",
       sub: "Available for calls or texts after class hours and if I'm not busy.",
       icon: "[☎]"
     },
