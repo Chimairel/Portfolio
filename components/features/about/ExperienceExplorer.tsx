@@ -7,32 +7,17 @@ import { cn } from "@/lib/utils";
 
 const experiences = [
   {
-    company: "GrowthOps Asia",
+    company: "Portfolio Projects",
     roles: [
       {
-        title: "Web_Developer.ts",
-        date: "Oct 2024 - Present",
+        title: "FCFS_Scheduling_Simulator.tsx",
+        date: "2024",
         color: "group-hover:text-blue-500 dark:group-hover:text-[#569CD6]"
       },
       {
-        title: "Jr_Web_Developer_Remote.ts",
-        date: "Dec 2023 - Sep 2024",
-        color: "group-hover:text-yellow-500 dark:group-hover:text-[#DCDCAA]"
-      },
-      {
-        title: "Jr_Web_Developer_Contractual.ts",
-        date: "Nov 2022 - Nov 2023",
-        color: "group-hover:text-yellow-500 dark:group-hover:text-[#DCDCAA]"
-      }
-    ]
-  },
-  {
-    company: "Freelance",
-    roles: [
-      {
-        title: "Software_Developer.tsx",
-        date: "2022 - Present",
-        color: "group-hover:text-cyan-500 dark:group-hover:text-[#4EC9B0]"
+        title: "7_Evelyn_Ecommerce.tsx",
+        date: "2023",
+        color: "group-hover:text-blue-500 dark:group-hover:text-[#569CD6]"
       }
     ]
   },
@@ -40,9 +25,14 @@ const experiences = [
     company: "Cordova Public College",
     roles: [
       {
-        title: "Wrote_first_line_of_code.js",
-        date: "2020",
-        color: "group-hover:text-yellow-500 dark:group-hover:text-[#E8D771]"
+        title: "Web_Development_Projects.ts",
+        date: "2024 - Present",
+        color: "group-hover:text-yellow-500 dark:group-hover:text-[#DCDCAA]"
+      },
+      {
+        title: "Collaborative_Coursework.ts",
+        date: "2023 - 2024",
+        color: "group-hover:text-cyan-500 dark:group-hover:text-[#4EC9B0]"
       }
     ]
   }

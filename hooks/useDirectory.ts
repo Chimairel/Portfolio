@@ -1,21 +1,25 @@
 import { useState, FormEvent } from "react";
-
-function getInitialSearch() {
-  if (typeof window !== "undefined") {
-    const params = new URLSearchParams(window.location.search);
-    return params.get("search") || "";
-  }
-  return "";
-}
+import { useSearchParams } from "next/navigation";
 
 export function useDirectory<T>(
   dataArray: T[], 
   itemsPerPage: number, 
   filterLogic: (item: T, searchKey: string) => boolean
 ) {
-  const [searchInput, setSearchInput] = useState(getInitialSearch);
-  const [activeSearch, setActiveSearch] = useState(getInitialSearch);
+  const searchParams = useSearchParams();
+  const urlSearch = searchParams.get("search") || "";
+
+  const [searchInput, setSearchInput] = useState(urlSearch);
+  const [activeSearch, setActiveSearch] = useState(urlSearch);
   const [currentPage, setCurrentPage] = useState(1);
+
+  const [prevUrlSearch, setPrevUrlSearch] = useState(urlSearch);
+  if (urlSearch !== prevUrlSearch) {
+    setPrevUrlSearch(urlSearch);
+    setSearchInput(urlSearch);
+    setActiveSearch(urlSearch);
+    setCurrentPage(1);
+  }
 
   const filteredData = dataArray.filter((item) => filterLogic(item, activeSearch));
 
