@@ -1,5 +1,5 @@
 import { Geist_Mono, Inter } from "next/font/google"
-
+import { ScrollToTop} from "@/components/common/ScrollToTop";
 import "styles/globals.css"
 import { ThemeProvider } from "@/components/providers/theme-provider"
 import { cn } from "@/lib/utils";
@@ -24,6 +24,7 @@ export default function RootLayout({
     >
       <body>
         <ThemeProvider>{children}</ThemeProvider>
+        <ScrollToTop />
       </body>
     </html>
   )

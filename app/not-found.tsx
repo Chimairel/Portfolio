@@ -12,7 +12,6 @@ export default function NotFound() {
       <RetroWindow title="FATAL_ERROR_404.exe" id="not-found" noPadding>
         <div className="p-8 md:p-12 flex flex-col items-center text-center gap-6 bg-muted/20">
           
-          {/* The Giant Error Text */}
           <div className="font-mono text-5xl md:text-7xl font-bold tracking-tighter text-foreground">
             404
           </div>
@@ -20,18 +19,16 @@ export default function NotFound() {
           <div className="bg-foreground text-background px-4 py-1 font-mono font-bold uppercase tracking-widest text-sm md:text-base mb-4 inline-block">
             Directory Not Found
           </div>
-          
-          {/* The Terminal Error Log */}
-          <div className="font-mono text-muted-foreground text-sm md:text-base border-l-4 border-foreground pl-4 text-left w-full bg-background p-4 shadow-[inset_2px_2px_0px_0px_var(--color-border)]">
-            &gt; SYSTEM EXCEPTION: The requested sector is empty or corrupted.<br/><br/>
-            &gt; DIAGNOSTIC: <br/>
-            &nbsp;&nbsp;- File may have been moved.<br/>
-            &nbsp;&nbsp;- File may have been deleted.<br/>
-            &nbsp;&nbsp;- Typographical error in path string.<br/><br/>
-            &gt; RECOMMENDED ACTION: Return to root directory immediately.
+
+          <div className="w-full max-w-sm border-2 border-foreground p-2 bg-background shadow-[inset_2px_2px_0px_0px_var(--color-border)]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src="https://media1.tenor.com/m/L647XZ9xAHcAAAAd/speed-covering-mouth.gif" 
+              alt="Confused 404 GIF" 
+              className="w-full h-64 grayscale hover:grayscale-0 transition-all duration-300"
+            />
           </div>
 
-          {/* Recovery Actions */}
           <div className="mt-8 flex flex-col sm:flex-row gap-4 w-full justify-center">
             <Button 
               variant="default" 
@@ -39,7 +36,7 @@ export default function NotFound() {
               asChild
             >
               <Link href="/">
-                Back to Home
+                I am 18+ or older - Enter
               </Link>
             </Button>
             <Button 
@@ -48,7 +45,7 @@ export default function NotFound() {
               asChild
             >
               <Link href="https://www.roblox.com/">
-                Mag Roblox ka nalang boy
+                I am under 18 - Exit
               </Link>
             </Button>
           </div>

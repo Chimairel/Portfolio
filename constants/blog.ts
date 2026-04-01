@@ -63,7 +63,7 @@ export const blogData = [
     excerpt: "A web application that visually demonstrates the First-Come, First-Served (FCFS) CPU scheduling algorithm. Features clear visualization of process execution order, real-time calculation of Waiting Time and Turnaround Time.",
     date: "2024",
     category: "Experience",
-    image: "https://images.unsplash.com/photo-1729786423717-07716ec501e9?q=80&w=1228&auto=format&fit=crop",
+    image: "/FCFS.png",
     projectLink: `/projects?search=${projectsData[0].title}`,
   },
   {
@@ -73,7 +73,7 @@ export const blogData = [
     excerpt: "A mock-up e-commerce site focused on a modern shopping experience. Includes user authentication, product catalog, search functionality, and a dynamic shopping cart with simple checkout.",
     date: "2023",
     category: "Experience",
-    image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=1000&auto=format&fit=crop",
+    image: "/7-evelyn.png",
     projectLink: `/projects?search=${projectsData[1].title}`,
   },
   {

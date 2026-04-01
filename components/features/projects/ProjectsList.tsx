@@ -48,7 +48,13 @@ export function ProjectsList() {
                   <p className="text-sm font-medium text-muted-foreground leading-snug">{project.description}</p>
                 </div>
                 <Button variant="outline" className="w-fit mt-2" asChild>
-                  <Link href={project.link}>View Project</Link>
+                  <Link 
+                    href={project.link}
+                    target={project.openInNewTab ? "_blank" : undefined}
+                    rel={project.openInNewTab ? "noopener noreferrer" : undefined}
+                  >
+                    View Project
+                  </Link>
                 </Button>
               </div>
             </RetroWindow>

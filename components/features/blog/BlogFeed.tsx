@@ -23,7 +23,7 @@ export function BlogFeed() {
 
   return (
     <>
-      <RetroWindow title="RSS_Feed_Reader.exe" id="blog-main">
+      <RetroWindow title="blog_feed.exe" id="blog-main">
         <div className="-mb-3">
           <DirectorySearch
             path="C:\Chimairel\Blog\"
@@ -44,7 +44,7 @@ export function BlogFeed() {
 
         <div className="flex flex-col gap-4">
           {currentItems.map((post) => (
-            <div key={post.id} className="flex flex-col md:flex-row border-2 border-border bg-card transition-colors duration-200 hover:shadow-[4px_4px_0px_0px_var(--color-border)] group">
+            <div key={post.id} className="flex flex-col md:flex-row border-2 border-border bg-card group">
               <div className="relative w-full md:w-1/4 aspect-video md:aspect-auto border-b-2 md:border-b-0 md:border-r-2 border-border bg-muted flex-shrink-0 overflow-hidden">
                 <Image src={post.image} alt={post.title} fill sizes="(max-width: 768px) 100vw, 25vw" className="object-cover" />
               </div>

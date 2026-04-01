@@ -5,8 +5,8 @@ export const projectsData = [
     title: "FCFS Scheduler Simulator",
     description: "A simulator for the First-Come, First-Served (FCFS) CPU scheduling algorithm, visualizing process execution, context switching, and wait times.",
     image: "/FCFS.png", 
-    link: "/projects/fcfs", 
-    openInNewTab: false,
+    link: "https://os-chimairel.vercel.app/projects/fcfs", 
+    openInNewTab: true,
   },
   {
     id: 2,
@@ -24,6 +24,6 @@ export const projectsData = [
     description: "An AI-powered personalized nutrition and meal planner designed to help users track their dietary goals and generate smart meal recommendations.",
     image: "/NutriMind.png",
     link: "https://www.figma.com/design/kSBN6j5NP6aRVSzrrZ5jfh/HCI?node-id=0-1&t=ZA6Pp3ClyDEvD5BO-1",
-    openInNewTab: false,
+    openInNewTab: true,
   }
 ];
