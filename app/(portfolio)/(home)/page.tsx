@@ -1,17 +1,14 @@
 import { HeroBanner } from "@/components/features/home/HeroBanner";
 import { RecentProjects } from "@/components/features/home/RecentProjects";
 import { ContactCTA } from "@/components/features/home/ContactCTA";
+import { PageContainer } from "@/components/common/PageContainer";
 
 export default function HomePage() {
   return (
-    <main className="w-full px-6 py-8 flex justify-center min-h-screen animate-in fade-in duration-500">
-      
-      <div className="w-full max-w-6xl flex flex-col gap-12">
-        <HeroBanner />
-        <RecentProjects />
-        <ContactCTA />
-      </div>
-
-    </main>
+    <PageContainer>
+      <HeroBanner />
+      <RecentProjects />
+      <ContactCTA />
+    </PageContainer>
   );
 }

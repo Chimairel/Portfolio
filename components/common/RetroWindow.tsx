@@ -17,6 +17,7 @@ export function RetroWindow({ title, children, id, className, variant = "default
       id={id} 
       className={cn(
         "border-2 border-border bg-card flex flex-col w-full transition-colors duration-200",
+        !isCard && "shadow-[4px_4px_0px_0px_var(--color-border)]",
         className
       )}
     >

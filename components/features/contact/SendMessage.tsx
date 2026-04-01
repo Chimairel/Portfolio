@@ -6,7 +6,7 @@ export function SendMessage() {
       
       <div className="border-b-2 border-border pb-4">
         <h2 className="text-2xl font-bold tracking-tight uppercase">
-          Let's get in touch!
+          Let&apos;s get in touch!
         </h2>
         <p className="text-sm opacity-70 mt-1">
           Fill out the form below to send me a message.
