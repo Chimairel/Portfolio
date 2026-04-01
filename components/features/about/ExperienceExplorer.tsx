@@ -7,17 +7,32 @@ import { cn } from "@/lib/utils";
 
 const experiences = [
   {
-    company: "Portfolio Projects",
+    company: "GrowthOps Asia",
     roles: [
       {
-        title: "FCFS_Scheduling_Simulator.tsx",
-        date: "2024",
+        title: "Web_Developer.ts",
+        date: "Oct 2024 - Present",
         color: "group-hover:text-blue-500 dark:group-hover:text-[#569CD6]"
       },
       {
-        title: "7_Evelyn_Ecommerce.tsx",
-        date: "2023",
-        color: "group-hover:text-blue-500 dark:group-hover:text-[#569CD6]"
+        title: "Jr_Web_Developer_Remote.ts",
+        date: "Dec 2023 - Sep 2024",
+        color: "group-hover:text-yellow-500 dark:group-hover:text-[#DCDCAA]"
+      },
+      {
+        title: "Jr_Web_Developer_Contractual.ts",
+        date: "Nov 2022 - Nov 2023",
+        color: "group-hover:text-yellow-500 dark:group-hover:text-[#DCDCAA]"
+      }
+    ]
+  },
+  {
+    company: "Freelance",
+    roles: [
+      {
+        title: "Software_Developer.tsx",
+        date: "2022 - Present",
+        color: "group-hover:text-cyan-500 dark:group-hover:text-[#4EC9B0]"
       }
     ]
   },
@@ -25,14 +40,9 @@ const experiences = [
     company: "Cordova Public College",
     roles: [
       {
-        title: "Web_Development_Projects.ts",
-        date: "2024 - Present",
-        color: "group-hover:text-yellow-500 dark:group-hover:text-[#DCDCAA]"
-      },
-      {
-        title: "Collaborative_Coursework.ts",
-        date: "2023 - 2024",
-        color: "group-hover:text-cyan-500 dark:group-hover:text-[#4EC9B0]"
+        title: "Wrote_first_line_of_code.js",
+        date: "2020",
+        color: "group-hover:text-yellow-500 dark:group-hover:text-[#E8D771]"
       }
     ]
   }
@@ -120,7 +130,7 @@ export function ExperienceExplorer() {
         </div>
 
         {/* PUBLIC FOLDER (Static Sibling) */}
-        <div className="flex flex-col mt-2">
+        <div className="flex flex-col mt-4 pt-4 border-t border-border/50">
           <div 
             onClick={() => toggleFolder(-1)}
             className="flex items-center gap-1.5 px-4 py-2 hover:bg-muted/50 cursor-pointer transition-colors duration-200 select-none text-base font-bold uppercase tracking-wider group-hover:text-foreground text-muted-foreground"
@@ -137,8 +147,8 @@ export function ExperienceExplorer() {
           {openFolders.includes(-1) && (
             <div className="flex flex-col ml-6 border-l border-border/50 pl-2 mt-1">
               <a 
-                href="/chimairel-resume.pdf" 
-                download="chimairel-resume.pdf"
+                href="/resume.pdf" 
+                download="Chimairel_Resume.pdf"
                 className="flex flex-col py-1 mt-0.5 hover:bg-foreground hover:text-background rounded-sm cursor-pointer transition-colors duration-200 group/file select-none"
               >
                 <div className="flex items-center gap-1.5 px-2">

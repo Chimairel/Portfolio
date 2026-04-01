@@ -1,25 +1,21 @@
-import { useState, FormEvent, useEffect } from "react";
+import { useState, FormEvent } from "react";
+
+function getInitialSearch() {
+  if (typeof window !== "undefined") {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("search") || "";
+  }
+  return "";
+}
 
 export function useDirectory<T>(
   dataArray: T[], 
   itemsPerPage: number, 
   filterLogic: (item: T, searchKey: string) => boolean
 ) {
-  const [searchInput, setSearchInput] = useState("");
-  const [activeSearch, setActiveSearch] = useState("");
+  const [searchInput, setSearchInput] = useState(getInitialSearch);
+  const [activeSearch, setActiveSearch] = useState(getInitialSearch);
   const [currentPage, setCurrentPage] = useState(1);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const searchParams = new URLSearchParams(window.location.search);
-      const search = searchParams.get("search");
-      if (search) {
-        setSearchInput(search);
-        setActiveSearch(search);
-        setCurrentPage(1);
-      }
-    }
-  }, []);
 
   const filteredData = dataArray.filter((item) => filterLogic(item, activeSearch));
 

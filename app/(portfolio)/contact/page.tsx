@@ -1,4 +1,3 @@
-import { RetroWindow } from "@/components/common/RetroWindow";
 import { SendMessage } from "@/components/features/contact/SendMessage";
 import { Connections } from "@/components/features/contact/Connections";
 import { SocialLinks } from "@/components/features/contact/SocialLinks";
