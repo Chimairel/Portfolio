@@ -11,7 +11,6 @@ export function RecentProjects() {
     <RetroWindow title="Recent Projects" id="portfolio">
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        
         {recentProjects.map((project) => (
           <RetroWindow key={project.id} variant="card" title={project.fileName} className="h-full">
             
@@ -51,7 +50,7 @@ export function RecentProjects() {
 
       <div className="mt-10 pt-6 border-t-2 border-border flex justify-center w-full text-center font-mono">
         <p className="text-muted-foreground text-sm md:text-base">
-          &gt; Want to see what else I've been building? You can{" "}
+          &gt; Want to see what else I&apos;ve been building? You can{" "}
           <Link 
             href="/projects" 
             className="font-bold text-blue-600 dark:text-[#569CD6] hover:underline hover:text-blue-800 dark:hover:text-[#9CDCFE] underline-offset-4 transition-colors"

@@ -6,7 +6,7 @@ import { BlogPost } from "@/constants/blog";
 
 export function BlogPostReader({ post }: { post: BlogPost }) {
   return (
-    <main className="w-full px-6 py-8 flex justify-center min-h-screen animate-in fade-in duration-500">
+    <>
       <div className="w-full max-w-4xl flex flex-col gap-6">
         <Link href="/blog" className="inline-flex items-center gap-2 font-mono text-sm font-bold tracking-widest uppercase hover:underline underline-offset-4 w-fit mb-4">
           &lt; Return to Directory
@@ -28,9 +28,20 @@ export function BlogPostReader({ post }: { post: BlogPost }) {
             <p className="text-muted-foreground border-l-2 border-border pl-4 opacity-70">
               &gt; SYSTEM NOTE: Full transmission data is currently pending upload. End of file.
             </p>
+            {post.projectLink && (
+              <p className="mt-6 text-foreground">
+                &gt; If you want to see this project in action, you can view it directly in the{" "}
+                <Link 
+                  href={post.projectLink}
+                  className="font-bold underline underline-offset-4 hover:text-blue-600 dark:hover:text-[#569CD6] transition-colors"
+                >
+                  Projects Directory
+                </Link>.
+              </p>
+            )}
           </article>
         </RetroWindow>
       </div>
-    </main>
+    </>
   );
 }

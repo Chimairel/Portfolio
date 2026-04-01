@@ -21,7 +21,7 @@ export function Footer() {
 
           {/* Footer Nav */}
           <div className="flex flex-col gap-3">
-            <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground opacity-70">// Pages</h4>
+            <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground opacity-70">{"// Pages"}</h4>
             <nav className="flex flex-col items-start gap-2 text-sm font-bold">
               <Link href="/" className="hover:text-blue-600 transition-colors underline-offset-2 hover:underline">Home</Link>
               <Link href="/about" className="hover:text-blue-600 transition-colors underline-offset-2 hover:underline">About</Link>
@@ -33,7 +33,7 @@ export function Footer() {
           
           {/* Footer Resources */}
           <div className="flex flex-col gap-3">
-            <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground opacity-70">// Resources</h4>
+            <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground opacity-70">{"// Resources"}</h4>
             <nav className="flex flex-col items-start gap-2 text-sm font-bold">
               <a href="#" className="hover:text-blue-600 transition-colors italic">GitHub Boilerplates</a>
               <a href="#" className="hover:text-blue-600 transition-colors italic">CodePen Examples</a>
@@ -43,7 +43,7 @@ export function Footer() {
 
           {/* Footer Connect */}
           <div className="flex flex-col gap-3">
-            <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground opacity-70">// Connect</h4>
+            <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground opacity-70">{"// Connect"}</h4>
             <nav className="flex flex-col items-start gap-2 text-sm font-bold">
               <a href="https://github.com/chimairel" target="_blank" className="hover:text-blue-600 transition-colors underline-offset-2 hover:underline">GitHub</a>
               <a href="https://facebook.com/chimairel.pacaldo" target="_blank" className="hover:text-blue-600 transition-colors underline-offset-2 hover:underline">Facebook</a>

@@ -1,4 +1,4 @@
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useEffect } from "react";
 
 export function useDirectory<T>(
   dataArray: T[], 
@@ -8,6 +8,18 @@ export function useDirectory<T>(
   const [searchInput, setSearchInput] = useState("");
   const [activeSearch, setActiveSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const searchParams = new URLSearchParams(window.location.search);
+      const search = searchParams.get("search");
+      if (search) {
+        setSearchInput(search);
+        setActiveSearch(search);
+        setCurrentPage(1);
+      }
+    }
+  }, []);
 
   const filteredData = dataArray.filter((item) => filterLogic(item, activeSearch));
 

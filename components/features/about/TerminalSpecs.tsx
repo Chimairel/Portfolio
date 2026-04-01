@@ -12,7 +12,7 @@ export function TerminalSpecs() {
   return (
     <RetroWindow title="cmd.exe" id="terminal" noPadding>
       <div 
-        className="border border-white dark:border-0 font-mono text-xs md:text-sm bg-[#0a0a0a] text-[#ededed] p-6 md:p-8 flex flex-col gap-6 h-full min-h-[400px] cursor-text"
+        className="font-mono text-xs md:text-sm bg-[#0a0a0a] text-[#ededed] p-6 md:p-8 flex flex-col gap-6 h-full min-h-[300px] cursor-text"
         onClick={handleTerminalClick}
       >
         

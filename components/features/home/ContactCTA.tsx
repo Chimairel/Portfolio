@@ -1,15 +1,16 @@
 import Link from "next/link";
+import { RetroBlock } from "@/components/common/RetroBlock";
 
 export function ContactCTA() {
   return (
-    <section className="w-full border-2 border-border bg-foreground text-background py-12 px-6 md:py-16 flex flex-col items-center justify-center text-center transition-colors duration-200">
+    <RetroBlock as="section" className="w-full bg-foreground text-background py-12 px-6 md:py-16 flex flex-col items-center justify-center text-center">
       
       <h2 className="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">
         Need help building something?
       </h2>
       
       <p className="text-lg md:text-xl font-medium mb-8 max-w-2xl opacity-90">
-        Whether you're searching for a dedicated partner to develop your project or simply need expert support, I'm here to help.
+        Whether you&apos;re searching for a dedicated partner to develop your project or simply need expert support, I&apos;m here to help.
       </p>
       
       <Link 
@@ -19,6 +20,6 @@ export function ContactCTA() {
         Get in Touch
       </Link>
 
-    </section>
+    </RetroBlock>
   );
 }
