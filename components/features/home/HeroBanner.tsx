@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { RetroBlock } from "@/components/common/RetroBlock";
+import { RetroShadow } from "@/components/common/RetroShadow";
 
 export function HeroBanner() {
   return (
-    <RetroBlock as="section" className="grid grid-cols-1 md:grid-cols-5 bg-card overflow-hidden gap-0">
+    <RetroShadow as="section" className="grid grid-cols-1 md:grid-cols-5 bg-card overflow-hidden gap-0">
       
       {/* Left Column */}
       <div className="md:col-span-3 flex flex-col gap-6 p-8 md:p-12 order-2 md:order-1 justify-center">
@@ -53,6 +53,6 @@ export function HeroBanner() {
           />
       </div>
       
-    </RetroBlock>
+    </RetroShadow>
   );
 }

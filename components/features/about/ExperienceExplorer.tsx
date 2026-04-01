@@ -137,8 +137,8 @@ export function ExperienceExplorer() {
           {openFolders.includes(-1) && (
             <div className="flex flex-col ml-6 border-l border-border/50 pl-2 mt-1">
               <a 
-                href="/resume.pdf" 
-                download="Chimairel_Resume.pdf"
+                href="/chimairel-resume.pdf" 
+                download="chimairel-resume.pdf"
                 className="flex flex-col py-1 mt-0.5 hover:bg-foreground hover:text-background rounded-sm cursor-pointer transition-colors duration-200 group/file select-none"
               >
                 <div className="flex items-center gap-1.5 px-2">

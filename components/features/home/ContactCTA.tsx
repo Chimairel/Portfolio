@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { RetroBlock } from "@/components/common/RetroBlock";
+import { RetroShadow } from "@/components/common/RetroShadow";
 
 export function ContactCTA() {
   return (
-    <RetroBlock as="section" className="w-full bg-foreground text-background py-12 px-6 md:py-16 flex flex-col items-center justify-center text-center">
+    <RetroShadow as="section" className="w-full bg-foreground text-background py-12 px-6 md:py-16 flex flex-col items-center justify-center text-center">
       
       <h2 className="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">
         Need help building something?
@@ -20,6 +20,6 @@ export function ContactCTA() {
         Get in Touch
       </Link>
 
-    </RetroBlock>
+    </RetroShadow>
   );
 }

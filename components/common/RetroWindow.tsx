@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { RetroShadow } from "./RetroShadow";
 
 interface RetroWindowProps {
   title: string;
@@ -12,12 +13,11 @@ interface RetroWindowProps {
 export function RetroWindow({ title, children, id, className, variant = "default", noPadding = false }: RetroWindowProps) {
   const isCard = variant === "card";
 
-  return (
-    <section 
-      id={id} 
+  const content = (
+    <section
+      id={id}
       className={cn(
         "border-2 border-border bg-card flex flex-col w-full transition-colors duration-200",
-        !isCard && "shadow-[4px_4px_0px_0px_var(--color-border)]",
         className
       )}
     >
@@ -43,5 +43,13 @@ export function RetroWindow({ title, children, id, className, variant = "default
         {children}
       </div>
     </section>
+  );
+
+  if (isCard) return content;
+
+  return (
+    <RetroShadow as="div" className="border-0">
+      {content}
+    </RetroShadow>
   );
 }
