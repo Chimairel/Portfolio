@@ -20,6 +20,7 @@ interface DirectorySearchProps {
   categories?: { name: string; slug: string }[];
   selectedCategory?: string;
   onCategoryChange?: (slug: string) => void;
+  extraActions?: React.ReactNode;
 }
 
 export function DirectorySearch({
@@ -33,7 +34,8 @@ export function DirectorySearch({
   itemLabel = "Items Found",
   categories,
   selectedCategory,
-  onCategoryChange
+  onCategoryChange,
+  extraActions
 }: DirectorySearchProps) {
   
   const activeCategoryName = selectedCategory === "all" || !selectedCategory
@@ -102,6 +104,7 @@ export function DirectorySearch({
               </DropdownMenuContent>
             </DropdownMenu>
           )}
+          {extraActions}
 
         </div>
 

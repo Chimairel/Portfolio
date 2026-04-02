@@ -1,10 +1,10 @@
 import { projectsData } from "./projects";
 
 export const BLOG_CATEGORIES = [
-  { name: "Web Dev", slug: "web-development" },
+  { name: "Web Development", slug: "web-development" },
   { name: "Hardware", slug: "hardware" },
-  { name: "Startup", slug: "technopreneurship" },
-  { name: "CS", slug: "computer-science" },
+  { name: "Technopreneurship", slug: "technopreneurship" },
+  { name: "Computer Science", slug: "computer-science" },
   { name: "Experience", slug: "experience" },
 ];
 

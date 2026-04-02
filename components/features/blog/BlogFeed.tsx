@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RetroWindow } from "@/components/common/RetroWindow";
 import { DirectorySearch } from "@/components/common/DirectorySearch";
@@ -18,7 +19,8 @@ export function BlogFeed() {
     2, // Blogs per page
     (post, search) =>
       post.title.toLowerCase().includes(search.toLowerCase()) ||
-      post.excerpt.toLowerCase().includes(search.toLowerCase())
+      post.excerpt.toLowerCase().includes(search.toLowerCase()) ||
+      post.date.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
@@ -39,6 +41,16 @@ export function BlogFeed() {
             onCategoryChange={(val) => {
               if (val !== "all") router.push(`/blog/category/${val}`);
             }}
+            extraActions={
+              <Link 
+                href="/blog/date"
+                className="bg-card text-foreground border-2 border-border px-3 py-2 outline-none focus:bg-muted cursor-pointer shadow-[2px_2px_0px_0px_var(--color-border)] flex justify-center items-center transition-all hover:bg-muted hover:-translate-y-[1px] active:translate-y-[1px] group flex-shrink-0"
+                title="Time Machine (Search by Date)"
+              >
+                <Calendar className="w-5 h-5 group-hover:rotate-6 transition-transform" />
+                <span className="sr-only">Date Archive</span>
+              </Link>
+            }
           />
         </div>
 
