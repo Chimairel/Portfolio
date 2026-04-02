@@ -28,17 +28,19 @@ export function BlogFeed() {
       <RetroWindow title="blog_feed.exe" id="blog-main">
         <div className="-mb-3">
           <DirectorySearch
-            path="C:\Chimairel\Blog\"
+            path="C:/Chimairel/blog/"
             searchInput={searchInput}
             setSearchInput={setSearchInput}
             handleSearch={handleSearch}
             resultCount={totalItemsFound}
-            placeholder="search_posts..."
+            placeholder="search_blog..."
             buttonText="Query"
             itemLabel="Logs Found"
-            categories={BLOG_CATEGORIES}
-            selectedCategory="all"
-            onCategoryChange={(val) => {
+            filterVariant="category"
+            filterOptions={BLOG_CATEGORIES}
+            selectedFilterOption="all"
+            defaultFilterLabel="ALL POSTS"
+            onFilterChange={(val) => {
               if (val !== "all") router.push(`/blog/category/${val}`);
             }}
             extraActions={

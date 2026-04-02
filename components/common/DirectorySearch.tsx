@@ -2,11 +2,11 @@
 
 import { FormEvent } from "react";
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+  RetroDropdown,
+  RetroDropdownContent,
+  RetroDropdownItem,
+  RetroDropdownTrigger,
+} from "@/components/common/RetroDropdown";
 
 interface DirectorySearchProps {
   path: string;
@@ -17,9 +17,11 @@ interface DirectorySearchProps {
   placeholder?: string;
   buttonText?: string;
   itemLabel?: string;
-  categories?: { name: string; slug: string }[];
-  selectedCategory?: string;
-  onCategoryChange?: (slug: string) => void;
+  filterVariant?: "category" | "date";
+  filterOptions?: { name: string; slug: string }[];
+  selectedFilterOption?: string;
+  onFilterChange?: (slug: string) => void;
+  defaultFilterLabel?: string;
   extraActions?: React.ReactNode;
 }
 
@@ -32,15 +34,17 @@ export function DirectorySearch({
   placeholder = "search...",
   buttonText = "Find",
   itemLabel = "Items Found",
-  categories,
-  selectedCategory,
-  onCategoryChange,
+  filterVariant,
+  filterOptions,
+  selectedFilterOption,
+  onFilterChange,
+  defaultFilterLabel = "ALL ITEMS",
   extraActions
 }: DirectorySearchProps) {
   
-  const activeCategoryName = selectedCategory === "all" || !selectedCategory
-    ? "ALL POSTS"
-    : categories?.find(c => c.slug === selectedCategory)?.name || "ALL POSTS";
+  const activeOptionName = selectedFilterOption === "all" || !selectedFilterOption
+    ? defaultFilterLabel
+    : filterOptions?.find(c => c.slug === selectedFilterOption)?.name || defaultFilterLabel;
 
   return (
     <div className="mb-8 border-b-2 border-border pb-6 flex flex-col gap-4">
@@ -69,40 +73,33 @@ export function DirectorySearch({
             </button>
           </form>
 
-          {categories && onCategoryChange && (
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
+          {filterVariant && filterOptions && onFilterChange && (
+            <RetroDropdown>
+              <RetroDropdownTrigger asChild>
                 <button 
                   type="button" 
                   className="bg-card text-foreground border-2 border-border px-4 py-2 outline-none focus:bg-muted font-mono uppercase font-bold cursor-pointer shadow-[2px_2px_0px_0px_var(--color-border)] min-w-[160px] flex justify-between items-center gap-3 transition-colors hover:bg-muted"
                 >
-                  <span className="truncate">{activeCategoryName}</span>
+                  <span className="truncate">{activeOptionName}</span>
                   <span className="text-[10px] opacity-70">▼</span>
                 </button>
-              </DropdownMenuTrigger>
+              </RetroDropdownTrigger>
               
-              <DropdownMenuContent 
-                align="end" 
-                className="w-48 border-2 border-border rounded-none bg-card text-foreground font-bold uppercase tracking-wider shadow-[4px_4px_0px_0px_var(--color-border)] font-mono p-0"
-              >
-                <DropdownMenuItem 
-                  onClick={() => onCategoryChange("all")}
-                  className="cursor-pointer rounded-none transition-none focus:bg-foreground focus:text-background py-3 px-4 border-b-2 border-border last:border-0"
-                >
-                  ALL POSTS
-                </DropdownMenuItem>
+              <RetroDropdownContent>
+                <RetroDropdownItem onClick={() => onFilterChange("all")}>
+                  {defaultFilterLabel}
+                </RetroDropdownItem>
                 
-                {categories.map((cat) => (
-                  <DropdownMenuItem 
-                    key={cat.slug}
-                    onClick={() => onCategoryChange(cat.slug)}
-                    className="cursor-pointer rounded-none transition-none focus:bg-foreground focus:text-background py-3 px-4 border-b-2 border-border last:border-0"
+                {filterOptions.map((opt) => (
+                  <RetroDropdownItem 
+                    key={opt.slug}
+                    onClick={() => onFilterChange(opt.slug)}
                   >
-                    {cat.name}
-                  </DropdownMenuItem>
+                    {opt.name}
+                  </RetroDropdownItem>
                 ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+              </RetroDropdownContent>
+            </RetroDropdown>
           )}
           {extraActions}
 

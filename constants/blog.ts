@@ -38,7 +38,7 @@ export const blogData = [
       
       <h3 class="text-xl font-bold mt-8 mb-4 tracking-widest text-foreground border-b-2 border-border pb-2">// Hidden Features: The Terminal</h3>
       <p class="mb-4">What's a retro OS without a command-line interface? I didn't want the aesthetic to just be skin-deep; I wanted visitors to actually "hack" their way through the portfolio if they wanted to.</p>
-      <p class="mb-4">If you head over to the <a href="/about" class="text-blue-600 hover:text-blue-800 dark:hover:text-[#569CD6] font-bold underline underline-offset-4 decoration-2">About Page</a>, you'll find a fully functional simulated terminal. Instead of exclusively using the standard navigation menu, you can execute relative directory commands!</p>
+      <p class="mb-4">If you head over to the <a href="/about" class="font-bold text-blue-600 dark:text-[#569CD6] hover:underline hover:text-blue-800 dark:hover:text-[#9CDCFE] underline-offset-4 transition-colors">About Page</a>, you'll find a fully functional simulated terminal. Instead of exclusively using the standard navigation menu, you can execute relative directory commands!</p>
       <p class="mb-4">Because the terminal correctly calculates directory context, you can type <code>cd ../projects</code> or <code>cd ../blog</code> to traverse directories. It actually resolves relative file paths mimicking a real Windows/DOS system hierarchy!</p>
     `,
   },

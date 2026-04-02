@@ -40,7 +40,7 @@ export function BlogPostReader({ post }: { post: BlogPost }) {
                 &gt; If you want to see this project in action, you can view it directly in the{" "}
                 <Link 
                   href={post.projectLink}
-                  className="font-bold underline underline-offset-4 hover:text-blue-600 dark:hover:text-[#569CD6] transition-colors"
+                  className="font-bold text-blue-600 dark:text-[#569CD6] hover:underline hover:text-blue-800 dark:hover:text-[#9CDCFE] underline-offset-4 transition-colors"
                 >
                   Projects Directory
                 </Link>.

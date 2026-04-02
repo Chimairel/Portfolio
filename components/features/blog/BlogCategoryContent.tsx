@@ -7,15 +7,8 @@ import { Button } from "@/components/ui/button";
 import { RetroWindow } from "@/components/common/RetroWindow";
 import { DirectorySearch } from "@/components/common/DirectorySearch";
 import { DirectoryPagination } from "@/components/common/DirectoryPagination";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { BLOG_CATEGORIES } from "@/constants/blog";
 import { useDirectory } from "@/hooks/useDirectory";
-
 interface BlogPost {
   id: number;
   slug: string;
@@ -54,46 +47,11 @@ export function BlogCategoryContent({ activeCategories, filteredPosts, mainCateg
            </h2>
            <p className="font-mono text-xs text-muted-foreground mt-1 font-bold">Filtering transmissions by designated category</p>
         </div>
-        
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <button 
-              type="button" 
-              className="bg-card text-foreground border-2 border-border px-4 py-2 outline-none focus:bg-muted font-mono uppercase font-bold cursor-pointer shadow-[2px_2px_0px_0px_var(--color-border)] min-w-[160px] flex justify-between items-center gap-3 transition-colors hover:bg-muted"
-            >
-              <span className="truncate">{BLOG_CATEGORIES.find(c => c.slug === mainCategory)?.name || "UNKNOWN"}</span>
-              <span className="text-[10px] opacity-70">▼</span>
-            </button>
-          </DropdownMenuTrigger>
-          
-          <DropdownMenuContent 
-            align="end" 
-            className="w-48 border-2 border-border rounded-none bg-card text-foreground font-bold uppercase tracking-wider shadow-[4px_4px_0px_0px_var(--color-border)] font-mono p-0"
-          >
-            <DropdownMenuItem 
-              onClick={() => router.push("/blog")}
-              className="cursor-pointer rounded-none transition-none focus:bg-foreground focus:text-background py-3 px-4 border-b-2 border-border last:border-0"
-            >
-              ALL POSTS
-            </DropdownMenuItem>
-            
-            {BLOG_CATEGORIES.map((cat) => (
-              <DropdownMenuItem 
-                key={cat.slug}
-                onClick={() => router.push(`/blog/category/${cat.slug}`)}
-                className="cursor-pointer rounded-none transition-none focus:bg-foreground focus:text-background py-3 px-4 border-b-2 border-border last:border-0"
-              >
-                {cat.name}
-              </DropdownMenuItem>
-            ))}
-          </DropdownMenuContent>
-        </DropdownMenu>
-
       </div>
 
       <div className="-mb-3"> 
         <DirectorySearch 
-          path={`C:\\Chimairel\\Blog\\${activeCategories.join("\\")}\\`}
+          path={`C:/Chimairel/blog/category/${activeCategories.join("/")}/`}
           searchInput={searchInput}
           setSearchInput={setSearchInput}
           handleSearch={handleSearch}
@@ -101,6 +59,14 @@ export function BlogCategoryContent({ activeCategories, filteredPosts, mainCateg
           placeholder="filter_logs..."
           buttonText="Query"
           itemLabel="Logs Found"
+          filterVariant="category"
+          filterOptions={BLOG_CATEGORIES}
+          selectedFilterOption={mainCategory}
+          defaultFilterLabel="ALL POSTS"
+          onFilterChange={(val) => {
+            if (val === "all") router.push('/blog');
+            else router.push(`/blog/category/${val}`);
+          }}
         />
       </div>
 

@@ -1,27 +1,23 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "./ThemeToggle";
-import { Menu } from "lucide-react"; 
+import { Menu, X } from "lucide-react"; 
 import { cn } from "@/lib/utils"; 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Projects", href: "/projects" },
-  { name: "Blog", href: "/blog" },
+  { name: "Blogs", href: "/blog" },
   { name: "Contact", href: "/contact" },
 ];
 
 export function Header() {
   const pathname = usePathname();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
@@ -29,13 +25,16 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-background text-foreground w-full px-6 pt-6 pb-2 flex justify-center transition-colors duration-200">
-      <div className="flex justify-between items-center w-full max-w-6xl border-b-2 border-border pb-4">
+    <header className="sticky top-0 z-50 bg-background text-foreground w-full px-6 pt-6 pb-2 flex flex-col items-center transition-colors duration-200">
+      <div className={cn(
+        "flex justify-between items-center w-full max-w-6xl pb-4 border-b-2 border-border transition-colors",
+        isMobileMenuOpen && "border-transparent" 
+      )}>
         
         {/* Logo */}
         <div className="flex items-center gap-2 font-bold text-xl tracking-tight">
           <div className="w-4 h-4 bg-foreground rounded-full"></div>
-          <Link href="/">
+          <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
             <span>Chimairel.app</span>
           </Link>
         </div>
@@ -57,47 +56,74 @@ export function Header() {
                       : "text-foreground hover:bg-foreground hover:text-background"
                   )}
                 >
-                  {link.name}
+                  {link.name === "Blogs" ? "Blog" : link.name}
                 </Link>
               );
             })}
           </nav>
 
-          {/* Mobile Nav */}
+          {/* Mobile Nav Toggle */}
           <div className="flex md:hidden">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <button suppressHydrationWarning className="flex items-center justify-center p-1.5 text-foreground cursor-pointer outline-none focus:outline-none transition-none">
-                  <Menu className="w-6 h-6 stroke-3" />
-                  <span className="sr-only">Open Menu</span>
-                </button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-48 border-2 border-border rounded-none bg-card text-foreground font-bold uppercase tracking-wider shadow-none">
-                {navLinks.map((link) => {
-                  const active = isActive(link.href);
-                  return (
-                    <DropdownMenuItem 
-                      key={link.name} 
-                      asChild 
-                      className={cn(
-                        "cursor-pointer rounded-none transition-none focus:bg-foreground focus:text-background",
-                        active && "bg-foreground text-background"
-                      )}
-                    >
-                      <Link href={link.href}>
-                        {link.name}
-                      </Link>
-                    </DropdownMenuItem>
-                  );
-                })}
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <button 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="flex items-center justify-center p-1.5 text-foreground cursor-pointer outline-none focus:outline-none transition-none"
+            >
+              {isMobileMenuOpen ? (
+                <X className="w-6 h-6 stroke-3" />
+              ) : (
+                <Menu className="w-6 h-6 stroke-3" />
+              )}
+              <span className="sr-only">Toggle Menu</span>
+            </button>
           </div>
 
           <ThemeToggle />
           
         </div>
       </div>
+
+      {/* Expanded Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="absolute top-full left-0 w-full h-[100vh] z-40 md:hidden flex flex-col items-center">
+          {/* Retro Pixelated Backdrop */}
+          <div 
+            className="absolute inset-0 flex cursor-pointer"
+            onClick={() => setIsMobileMenuOpen(false)} 
+          >
+            <div className="absolute inset-0 bg-background/60" />
+            <div 
+              className="absolute inset-0 opacity-20 dark:invert"
+              style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h2v2H0zM2 2h2v2H2z' fill='%23000000' fill-rule='evenodd'/%3E%3C/svg%3E")`,
+                backgroundRepeat: "repeat",
+              }}
+            />
+          </div>
+          
+          <div className="w-full relative z-50 animate-in slide-in-from-top-1 fade-in duration-200">
+            <nav className="flex flex-col w-full bg-background border-b-2 border-border">
+              {navLinks.map((link) => {
+                const active = isActive(link.href);
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={cn(
+                      "px-6 py-4 border-b-2 border-border last:border-b-0 font-mono uppercase font-bold tracking-widest transition-none",
+                      active 
+                        ? "bg-foreground text-background" 
+                        : "bg-background text-foreground hover:bg-foreground hover:text-background"
+                    )}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
+            </nav>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
