@@ -7,7 +7,7 @@ export function useTerminal(currentDirectory: string = "about") {
   const [history, setHistory] = useState<{ cmd: string; output: string }[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const promptString = `C:\\Chimairel\\${currentDirectory}>`;
+  const promptString = `C:/Chimairel/${currentDirectory}>`;
 
   const handleTerminalClick = () => {
     inputRef.current?.focus();
@@ -55,7 +55,7 @@ export function useTerminal(currentDirectory: string = "about") {
 
         if (validRoutes.includes(normalizedContext)) {
           if (normalizedContext === currentPath.join("/").toLowerCase()) {
-            return `Already in C:\\Chimairel\\${currentDirectory}`;
+            return `Already in C:/Chimairel/${currentDirectory}`;
           }
 
           const route = normalizedContext === "" ? "/" : `/${normalizedContext}`;

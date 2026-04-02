@@ -1,20 +1,28 @@
 "use client"; 
 
-import Image from "next/image";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { useState, useMemo } from "react";
 import { RetroWindow } from "@/components/common/RetroWindow";
 import { DirectorySearch } from "@/components/common/DirectorySearch";
 import { DirectoryPagination } from "@/components/common/DirectoryPagination";
+import { ProjectCard } from "@/components/features/projects/ProjectCard";
 import { projectsData } from "@/constants/projects";
 import { useDirectory } from "@/hooks/useDirectory";
 
 export function ProjectsList() {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
+  const categories = ["All", ...Array.from(new Set(projectsData.map(p => p.category)))];
+
+  const filteredData = useMemo(() => {
+    if (selectedCategory === "All") return [...projectsData].reverse();
+    return [...projectsData].reverse().filter(p => p.category === selectedCategory);
+  }, [selectedCategory]);
+
   const {
     searchInput, setSearchInput, currentPage, setCurrentPage,
     totalPages, currentItems, totalItemsFound, handleSearch
   } = useDirectory(
-    [...projectsData].reverse(),
+    filteredData,
     2,
     (project, search) =>
       project.title.toLowerCase().includes(search.toLowerCase()) ||
@@ -25,39 +33,28 @@ export function ProjectsList() {
     <RetroWindow title="Projects_Directory" id="projects-main">
           
       <DirectorySearch 
-        path="C:\Chimairel\Projects"
+        path="C:/Chimairel/projects/"
         searchInput={searchInput}
         setSearchInput={setSearchInput}
         handleSearch={handleSearch}
         resultCount={totalItemsFound}
-        placeholder="search_query.exe..."
+        placeholder="search_project..."
         buttonText="Find"
         itemLabel="Items Found"
+        filterVariant="category"
+        filterOptions={categories.filter(c => c !== "All").map(c => ({ name: c, slug: c }))}
+        selectedFilterOption={selectedCategory === "All" ? "all" : selectedCategory}
+        defaultFilterLabel="ALL PROJECTS"
+        onFilterChange={(val) => {
+          setSelectedCategory(val === "all" ? "All" : val);
+          setCurrentPage(1);
+        }}
       />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {currentItems.length > 0 ? (
           currentItems.map((project) => (
-            <RetroWindow key={project.id} variant="card" title={project.fileName} className="h-full">
-              <div className="relative w-full aspect-video border-b-2 border-border bg-muted flex items-center justify-center overflow-hidden">
-                <Image src={project.image} alt={project.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
-              </div>
-              <div className="p-4 flex flex-col flex-grow gap-3 justify-between">
-                <div>
-                  <h3 className="text-lg font-bold tracking-tight mb-1 text-foreground">{project.title}</h3>
-                  <p className="text-sm font-medium text-muted-foreground leading-snug">{project.description}</p>
-                </div>
-                <Button variant="outline" className="w-fit mt-2" asChild>
-                  <Link 
-                    href={project.link}
-                    target={project.openInNewTab ? "_blank" : undefined}
-                    rel={project.openInNewTab ? "noopener noreferrer" : undefined}
-                  >
-                    View Project
-                  </Link>
-                </Button>
-              </div>
-            </RetroWindow>
+            <ProjectCard key={project.id} project={project} />
           ))
         ) : (
           <div className="col-span-full py-12 text-center font-mono text-muted-foreground">

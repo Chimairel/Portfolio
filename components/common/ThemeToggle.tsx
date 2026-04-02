@@ -5,11 +5,11 @@ import { useTheme } from "next-themes"
 import { Moon, Sun } from "lucide-react"
 
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+  RetroDropdown,
+  RetroDropdownContent,
+  RetroDropdownItem,
+  RetroDropdownTrigger,
+} from "@/components/common/RetroDropdown"
 
 export function ThemeToggle() {
   const { setTheme, resolvedTheme } = useTheme()
@@ -22,8 +22,8 @@ export function ThemeToggle() {
   }
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
+    <RetroDropdown>
+      <RetroDropdownTrigger asChild>
         <button className="flex items-center justify-center p-1.5 text-foreground cursor-pointer outline-none focus:outline-none transition-none">
           {resolvedTheme === "dark" ? (
              <Moon className="w-6 h-6 stroke-3" />
@@ -32,19 +32,19 @@ export function ThemeToggle() {
           )}
           <span className="sr-only">Toggle theme</span>
         </button>
-      </DropdownMenuTrigger>
+      </RetroDropdownTrigger>
       
-      <DropdownMenuContent align="end" className="border-2 border-border rounded-none bg-background text-foreground font-bold uppercase tracking-wider shadow-none">
-        <DropdownMenuItem onClick={() => setTheme("light")} className="cursor-pointer focus:bg-foreground focus:text-background rounded-none transition-none">
+      <RetroDropdownContent align="end" className="bg-background">
+        <RetroDropdownItem onClick={() => setTheme("light")}>
           Light
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")} className="cursor-pointer focus:bg-foreground focus:text-background rounded-none transition-none">
+        </RetroDropdownItem>
+        <RetroDropdownItem onClick={() => setTheme("dark")}>
           Dark
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")} className="cursor-pointer focus:bg-foreground focus:text-background rounded-none transition-none">
+        </RetroDropdownItem>
+        <RetroDropdownItem onClick={() => setTheme("system")}>
           System
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+        </RetroDropdownItem>
+      </RetroDropdownContent>
+    </RetroDropdown>
   )
 }

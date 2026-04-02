@@ -56,7 +56,7 @@ export function BlogDateContent({ filteredPosts, year, month, day }: BlogDateCon
 
   const formattedPathTokens = [year, month, day].filter(Boolean);
   const titleDateStr = formattedPathTokens.length > 0 ? formattedPathTokens.join("/") : " ? ";
-  const directoryPathStr = formattedPathTokens.length > 0 ? formattedPathTokens.join("\\") + "\\" : "";
+  const directoryPathStr = formattedPathTokens.length > 0 ? formattedPathTokens.join("/") + "/" : "";
 
   return (
     <RetroWindow title={`Date_[${titleDateStr}].exe`} id="blog-date">
@@ -88,7 +88,7 @@ export function BlogDateContent({ filteredPosts, year, month, day }: BlogDateCon
 
       <div className="-mb-3"> 
         <DirectorySearch 
-          path={`C:\\Chimairel\\Blog\\Archive\\${directoryPathStr}`}
+          path={`C:/Chimairel/blog/date/${directoryPathStr}`}
           searchInput={searchInput}
           setSearchInput={setSearchInput}
           handleSearch={customHandleSearch}
