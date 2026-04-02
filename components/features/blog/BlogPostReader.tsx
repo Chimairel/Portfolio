@@ -25,9 +25,16 @@ export function BlogPostReader({ post }: { post: BlogPost }) {
           <article className="p-6 md:p-10 prose prose-neutral dark:prose-invert max-w-none font-mono text-sm md:text-base leading-relaxed">
             <p className="text-lg font-bold">{post.excerpt}</p>
             <br />
-            <p className="text-muted-foreground border-l-2 border-border pl-4 opacity-70">
-              &gt; SYSTEM NOTE: Full transmission data is currently pending upload. End of file.
-            </p>
+            {post.content ? (
+              <div 
+                dangerouslySetInnerHTML={{ __html: post.content }} 
+                className="prose-p:font-mono prose-a:font-mono prose-code:font-mono w-full"
+              />
+            ) : (
+              <p className="text-muted-foreground border-l-2 border-border pl-4 opacity-70">
+                &gt; SYSTEM NOTE: Full transmission data is currently pending upload. End of file.
+              </p>
+            )}
             {post.projectLink && (
               <p className="mt-6 text-foreground">
                 &gt; If you want to see this project in action, you can view it directly in the{" "}
