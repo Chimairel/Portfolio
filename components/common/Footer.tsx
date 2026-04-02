@@ -22,29 +22,29 @@ export function Footer() {
           <div className="flex flex-col gap-3">
             <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground opacity-70">{"// Pages"}</h4>
             <nav className="flex flex-col items-start gap-2 text-sm font-bold">
-              <Link href="/" className="hover:text-blue-600 transition-colors underline-offset-2 hover:underline">Home</Link>
-              <Link href="/about" className="hover:text-blue-600 transition-colors underline-offset-2 hover:underline">About</Link>
-              <Link href="/projects" className="hover:text-blue-600 transition-colors underline-offset-2 hover:underline">Projects</Link>
-              <Link href="/blog" className="hover:text-blue-600 transition-colors underline-offset-2 hover:underline">Blog</Link>
-              <Link href="/contact" className="hover:text-blue-600 transition-colors underline-offset-2 hover:underline">Contact</Link>
+              <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
+              <Link href="/about" className="hover:text-blue-600 transition-colors">About</Link>
+              <Link href="/projects" className="hover:text-blue-600 transition-colors">Projects</Link>
+              <Link href="/blog" className="hover:text-blue-600 transition-colors">Blog</Link>
+              <Link href="/contact" className="hover:text-blue-600 transition-colors">Contact</Link>
             </nav>
           </div>
           
           <div className="flex flex-col gap-3">
             <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground opacity-70">{"// Resources"}</h4>
             <nav className="flex flex-col items-start gap-2 text-sm font-bold">
-              <a href="#" className="hover:text-blue-600 transition-colors italic hover:underline underline-offset-2">GitHub Boilerplates</a>
-              <a href="#" className="hover:text-blue-600 transition-colors italic hover:underline underline-offset-2">CodePen Examples</a>
-              <a href="#" className="hover:text-blue-600 transition-colors italic hover:underline underline-offset-2">MDN Docs</a>
+              <a href="#" className="hover:text-blue-600 transition-colors italic">GitHub Boilerplates</a>
+              <a href="#" className="hover:text-blue-600 transition-colors italic">CodePen Examples</a>
+              <a href="#" className="hover:text-blue-600 transition-colors italic">MDN Docs</a>
             </nav>
           </div>
 
           <div className="flex flex-col gap-3">
             <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground opacity-70">{"// Connect"}</h4>
             <nav className="flex flex-col items-start gap-2 text-sm font-bold">
-              <a href="https://github.com/chimairel" target="_blank" className="hover:text-blue-600 transition-colors underline-offset-2 hover:underline">GitHub</a>
-              <a href="https://facebook.com/chimairel.pacaldo" target="_blank" className="hover:text-blue-600 transition-colors underline-offset-2 hover:underline">Facebook</a>
-              <a href="mailto:chimairelp@gmail.com" className="hover:text-blue-600 transition-colors underline-offset-2 hover:underline">Email</a>
+              <a href="https://github.com/chimairel" target="_blank" className="hover:text-blue-600">GitHub</a>
+              <a href="https://facebook.com/chimairel.pacaldo" target="_blank" className="hover:text-blue-600">Facebook</a>
+              <a href="mailto:chimairelp@gmail.com" className="hover:text-blue-600">Email</a>
             </nav>
           </div>
 
