@@ -37,7 +37,7 @@ export function useTerminal(currentDirectory: string = "about") {
         }
 
         const currentPath = !currentDirectory || currentDirectory.toLowerCase() === "home" ? [] : currentDirectory.split("/");
-        let targetPath = [...currentPath];
+        const targetPath = [...currentPath];
 
         const segments = target.split(/[\/\\]/).filter(Boolean);
         for (const seg of segments) {
