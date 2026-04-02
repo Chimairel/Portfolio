@@ -44,7 +44,7 @@ export function Footer() {
             <nav className="flex flex-col items-start gap-2 text-sm font-bold">
               <a href="https://github.com/chimairel" target="_blank" className="hover:text-blue-600">GitHub</a>
               <a href="https://facebook.com/chimairel.pacaldo" target="_blank" className="hover:text-blue-600">Facebook</a>
-              <a href="mailto:chimairelp@gmail.com" className="hover:text-blue-600">Email</a>
+              <a href="https://discord.gg/2929292929" className="hover:text-blue-600">Discord</a>
             </nav>
           </div>
 

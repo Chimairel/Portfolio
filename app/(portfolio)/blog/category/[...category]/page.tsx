@@ -1,5 +1,6 @@
 import { blogData as BLOG_POSTS } from "@/constants/blog";
 import { BlogCategoryContent } from "@/components/features/blog/BlogCategoryContent";
+import { PageContainer } from "@/components/common/PageContainer";
 
 type Props = { params: Promise<{ category: string[] }> };
 
@@ -16,10 +17,12 @@ export default async function BlogCategoryPage({ params }: Props) {
   });
 
   return (
-    <BlogCategoryContent 
-      activeCategories={activeCategories}
-      filteredPosts={filteredPosts}
-      mainCategory={mainCategory}
-    />
+    <PageContainer innerClassName="gap-6">
+      <BlogCategoryContent 
+        activeCategories={activeCategories}
+        filteredPosts={filteredPosts}
+        mainCategory={mainCategory}
+      />
+    </PageContainer>
   );
 }

@@ -7,6 +7,12 @@ import { Button } from "@/components/ui/button";
 import { RetroWindow } from "@/components/common/RetroWindow";
 import { DirectorySearch } from "@/components/common/DirectorySearch";
 import { DirectoryPagination } from "@/components/common/DirectoryPagination";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { BLOG_CATEGORIES } from "@/constants/blog";
 import { useDirectory } from "@/hooks/useDirectory";
 
@@ -34,71 +40,106 @@ export function BlogCategoryContent({ activeCategories, filteredPosts, mainCateg
     2,                           
     (post, search) => 
       post.title.toLowerCase().includes(search.toLowerCase()) ||
-      post.excerpt.toLowerCase().includes(search.toLowerCase())
+      post.excerpt.toLowerCase().includes(search.toLowerCase()) ||
+      post.date.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
-    <main className="w-full px-6 py-4 flex justify-center min-h-screen animate-in fade-in duration-500">
-      <div className="w-full max-w-6xl flex flex-col gap-6">
-        <RetroWindow title={`Category_${mainCategory?.toUpperCase() || "UNKNOWN"}.exe`} id="blog-category">
+    <RetroWindow title={`Category.exe`} id="blog-category">
+      
+      <div className="bg-muted p-4 mb-6 border-2 border-border shadow-[4px_4px_0px_0px_var(--color-border)] flex flex-col md:flex-row justify-between items-center gap-4">
+        <div>
+           <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-foreground">
+             DIR: {mainCategory.replace("-", " ")}
+           </h2>
+           <p className="font-mono text-xs text-muted-foreground mt-1 font-bold">Filtering transmissions by designated category</p>
+        </div>
+        
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <button 
+              type="button" 
+              className="bg-card text-foreground border-2 border-border px-4 py-2 outline-none focus:bg-muted font-mono uppercase font-bold cursor-pointer shadow-[2px_2px_0px_0px_var(--color-border)] min-w-[160px] flex justify-between items-center gap-3 transition-colors hover:bg-muted"
+            >
+              <span className="truncate">{BLOG_CATEGORIES.find(c => c.slug === mainCategory)?.name || "UNKNOWN"}</span>
+              <span className="text-[10px] opacity-70">▼</span>
+            </button>
+          </DropdownMenuTrigger>
           
-          <div className="-mb-3"> 
-            <DirectorySearch 
-              path={`C:\\Chimairel\\Blog\\${activeCategories.join("\\")}\\`}
-              searchInput={searchInput}
-              setSearchInput={setSearchInput}
-              handleSearch={handleSearch}
-              resultCount={totalItemsFound}
-              placeholder="search_category..."
-              buttonText="Query"
-              itemLabel="Logs Found"
-              categories={BLOG_CATEGORIES}
-              selectedCategory={mainCategory} 
-              onCategoryChange={(val) => {
-                if (val === "all") router.push("/blog");
-                else router.push(`/blog/category/${val}`);
-              }}
-            />
-          </div>
+          <DropdownMenuContent 
+            align="end" 
+            className="w-48 border-2 border-border rounded-none bg-card text-foreground font-bold uppercase tracking-wider shadow-[4px_4px_0px_0px_var(--color-border)] font-mono p-0"
+          >
+            <DropdownMenuItem 
+              onClick={() => router.push("/blog")}
+              className="cursor-pointer rounded-none transition-none focus:bg-foreground focus:text-background py-3 px-4 border-b-2 border-border last:border-0"
+            >
+              ALL POSTS
+            </DropdownMenuItem>
+            
+            {BLOG_CATEGORIES.map((cat) => (
+              <DropdownMenuItem 
+                key={cat.slug}
+                onClick={() => router.push(`/blog/category/${cat.slug}`)}
+                className="cursor-pointer rounded-none transition-none focus:bg-foreground focus:text-background py-3 px-4 border-b-2 border-border last:border-0"
+              >
+                {cat.name}
+              </DropdownMenuItem>
+            ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
 
-          <div className="flex flex-col gap-4"> 
-            {currentItems.length > 0 ? (
-              currentItems.map((post) => (
-                <div key={post.id} className="flex flex-col md:flex-row border-2 border-border bg-card transition-colors duration-200 hover:shadow-[4px_4px_0px_0px_var(--color-border)] group">
-                  <div className="relative w-full md:w-1/4 aspect-video md:aspect-auto border-b-2 md:border-b-0 md:border-r-2 border-border bg-muted flex-shrink-0 overflow-hidden">
-                    <Image src={post.image} alt={post.title} fill sizes="(max-width: 768px) 100vw, 25vw" className="object-cover transition-transform duration-500" />
-                  </div>
-                  <div className="p-4 flex flex-col flex-grow justify-between gap-2">
-                    <div>
-                      <div className="flex items-center gap-2 font-mono text-[10px] md:text-xs font-bold uppercase tracking-widest mb-1.5">
-                        <span className="bg-foreground text-background px-1.5 py-0.5">{post.category}</span>
-                        <span className="text-muted-foreground">{post.date}</span>
-                      </div>
-                      <h3 className="text-lg md:text-xl font-bold tracking-tight mb-1 text-foreground leading-tight">{post.title}</h3>
-                      <p className="text-sm font-medium text-muted-foreground leading-snug line-clamp-2">{post.excerpt}</p>
-                    </div>
-                    <div className="mt-1">
-                      <Button variant="outline" size="sm" className="h-8 text-xs px-3" asChild>
-                        <Link href={`/blog/${post.slug}`}>Read Article</Link>
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              ))
-            ) : (
-              <div className="py-12 text-center font-mono text-muted-foreground border-2 border-dashed border-border flex flex-col items-center gap-2">
-                <span>&gt; ERROR 404: No transmission logs found in category: {mainCategory}</span>
-                <Link href="/blog" className="underline hover:text-foreground mt-2">Return to Root Directory</Link>
-              </div>
-            )}
-          </div>
-
-          <div className="mt-2">
-            <DirectoryPagination currentPage={currentPage} totalPages={totalPages} setCurrentPage={setCurrentPage} />
-          </div>
-
-        </RetroWindow>
       </div>
-    </main>
+
+      <div className="-mb-3"> 
+        <DirectorySearch 
+          path={`C:\\Chimairel\\Blog\\${activeCategories.join("\\")}\\`}
+          searchInput={searchInput}
+          setSearchInput={setSearchInput}
+          handleSearch={handleSearch}
+          resultCount={totalItemsFound}
+          placeholder="filter_logs..."
+          buttonText="Query"
+          itemLabel="Logs Found"
+        />
+      </div>
+
+      <div className="flex flex-col gap-4"> 
+        {currentItems.length > 0 ? (
+          currentItems.map((post) => (
+            <div key={post.id} className="flex flex-col md:flex-row border-2 border-border bg-card group">
+              <div className="relative w-full md:w-1/4 aspect-video md:aspect-auto border-b-2 md:border-b-0 md:border-r-2 border-border bg-muted flex-shrink-0 overflow-hidden">
+                <Image src={post.image} alt={post.title} fill sizes="(max-width: 768px) 100vw, 25vw" className="object-cover" />
+              </div>
+              <div className="p-4 flex flex-col flex-grow justify-between gap-2">
+                <div>
+                  <div className="flex items-center gap-2 font-mono text-[10px] md:text-xs font-bold uppercase tracking-widest mb-1.5">
+                    <span className="bg-foreground text-background px-1.5 py-0.5">{post.category}</span>
+                    <span className="text-muted-foreground">{post.date}</span>
+                  </div>
+                  <h3 className="text-lg md:text-xl font-bold tracking-tight mb-1 text-foreground leading-tight">{post.title}</h3>
+                  <p className="text-sm font-medium text-muted-foreground leading-snug line-clamp-2">{post.excerpt}</p>
+                </div>
+                <div className="mt-1">
+                  <Button variant="outline" size="sm" className="h-8 text-xs px-3" asChild>
+                    <Link href={`/blog/${post.slug}`}>Read Article</Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          ))
+        ) : (
+          <div className="py-12 text-center font-mono text-muted-foreground border-2 border-dashed border-border flex flex-col items-center gap-2">
+            <span>&gt; ERROR 404: No transmission logs found in category: {mainCategory}</span>
+            <Link href="/blog" className="underline hover:text-foreground mt-2">Return to Root Directory</Link>
+          </div>
+        )}
+      </div>
+
+      <div className="mt-2">
+        <DirectoryPagination currentPage={currentPage} totalPages={totalPages} setCurrentPage={setCurrentPage} />
+      </div>
+
+    </RetroWindow>
   );
 }

@@ -1,5 +1,6 @@
 import { blogData as BLOG_POSTS } from "@/constants/blog";
 import { BlogDateContent } from "@/components/features/blog/BlogDateContent";
+import { PageContainer } from "@/components/common/PageContainer";
 
 type Props = { params: Promise<{ date?: string[] }> };
 
@@ -23,11 +24,14 @@ export default async function BlogDatePage({ params }: Props) {
   });
 
   return (
-    <BlogDateContent 
-      segments={segments}
-      filteredPosts={filteredPosts}
-      year={year}
-      month={month}
-    />
+    <PageContainer innerClassName="gap-6">
+      <BlogDateContent 
+        segments={segments}
+        filteredPosts={filteredPosts}
+        year={year}
+        month={month}
+        day={day}
+      />
+    </PageContainer>
   );
 }
