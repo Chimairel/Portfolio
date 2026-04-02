@@ -17,6 +17,7 @@ export interface BlogPost {
   category: string;
   image: string;
   projectLink?: string;
+  content?: string;
 }
 
 export const blogData = [
@@ -28,6 +29,18 @@ export const blogData = [
     date: "March 10, 2026",
     category: "Web Development",
     image: "https://images.unsplash.com/photo-1639395241103-9c855f93a90c?q=80&w=648&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    content: `
+      <p class="mb-4">Hey! Chimairel here. Welcome to the breakdown of how I built this Retro OS portfolio.</p>
+      
+      <h3 class="text-xl font-bold mt-8 mb-4 tracking-widest text-foreground border-b-2 border-border pb-2">// The Idea Behind the UI</h3>
+      <p class="mb-4">I wanted my portfolio to stand out from the endless minimal, clean designs you see everywhere. Instead, I heavily drew inspiration from brutalist web design and the old-school 90s OS aesthetic. That means a stark lack of border radii, heavily visible solid borders, geometric brutalist drop shadows, and mono-spaced fonts holding the whole layout together.</p>
+      <p class="mb-4">To build this efficiently, I utilized <strong>Next.js</strong> for routing and rendering, <strong>Tailwind CSS</strong> for rapid styling, and standard Shadcn UI components for base interactions, which I then completely restyled to fit this harsh retro theme.</p>
+      
+      <h3 class="text-xl font-bold mt-8 mb-4 tracking-widest text-foreground border-b-2 border-border pb-2">// Hidden Features: The Terminal</h3>
+      <p class="mb-4">What's a retro OS without a command-line interface? I didn't want the aesthetic to just be skin-deep; I wanted visitors to actually "hack" their way through the portfolio if they wanted to.</p>
+      <p class="mb-4">If you head over to the <a href="/about" class="text-blue-600 hover:text-blue-800 dark:hover:text-[#569CD6] font-bold underline underline-offset-4 decoration-2">About Page</a>, you'll find a fully functional simulated terminal. Instead of exclusively using the standard navigation menu, you can execute relative directory commands!</p>
+      <p class="mb-4">Because the terminal correctly calculates directory context, you can type <code>cd ../projects</code> or <code>cd ../blog</code> to traverse directories. It actually resolves relative file paths mimicking a real Windows/DOS system hierarchy!</p>
+    `,
   },
   {
     id: 2,
