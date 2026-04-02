@@ -41,8 +41,8 @@ export function SocialLinks() {
           variant="outline"
           className="bg-transparent text-background border-2 border-background hover:bg-background hover:text-foreground font-bold uppercase tracking-widest w-full"
         >
-          <a href="https://www.roblox.com/users/3461734497/profile" target="_blank" rel="noopener noreferrer">
-            Roblox
+          <a href="https://discord.com/users/1139381583737012257" target="_blank" rel="noopener noreferrer">
+            Discord
           </a>
         </Button>
       </div>

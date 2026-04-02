@@ -6,9 +6,9 @@ type Props = { params: Promise<{ date?: string[] }> };
 export default async function BlogDatePage({ params }: Props) {
   const { date } = await params;
   const segments = date || [];
-  const year = segments[0];
-  const month = segments[1];
-  const day = segments[2];
+  const year = segments[0] ? (segments[0].length === 2 ? `20${segments[0]}` : segments[0]) : undefined;
+  const month = segments[1] ? segments[1].padStart(2, "0") : undefined;
+  const day = segments[2] ? segments[2].padStart(2, "0") : undefined;
 
   const filteredPosts = BLOG_POSTS.filter((post) => {
     if (!year) return true;

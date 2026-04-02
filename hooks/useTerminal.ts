@@ -13,12 +13,7 @@ export function useTerminal(currentDirectory: string = "about") {
     inputRef.current?.focus();
   };
 
-  const pathMap: Record<string, string> = {
-    "..": "/", "../": "/", "~": "/", "/": "/", "home": "/",
-    "projects": "/projects", "../projects": "/projects", "/projects": "/projects",
-    "blog": "/blog", "../blog": "/blog", "/blog": "/blog",
-    "contact": "/contact", "../contact": "/contact", "/contact": "/contact",
-  };
+  const validRoutes = ["", "home", "projects", "blog", "contact", "about"];
 
   const handleCommand = (e: FormEvent) => {
     e.preventDefault();
@@ -31,18 +26,39 @@ export function useTerminal(currentDirectory: string = "about") {
     const executeCommand: Record<string, () => string | void> = {
       cls: () => setHistory([]),
       clear: () => setHistory([]),
-      help: () => "Supported commands: cd <path ex: /projects>, cls, clear, help",
-      
+      help: () => "Supported commands: cd <path ex: ../projects>, cls, clear, help",
+
       cd: () => {
         const target = args[0];
         if (!target) return promptString.replace(">", "");
-        
-        if (target === "." || target === "./" || target === currentDirectory) {
-          return `Already in C:\\Chimairel\\${currentDirectory}`;
+
+        if (target.startsWith("/") || target.startsWith("~") || target.startsWith("\\")) {
+          return `The system cannot find the path specified: ${target}`;
         }
 
-        const route = pathMap[target];
-        if (route) {
+        const currentPath = !currentDirectory || currentDirectory.toLowerCase() === "home" ? [] : currentDirectory.split("/");
+        const targetPath = [...currentPath];
+
+        const segments = target.split(/[\/\\]/).filter(Boolean);
+        for (const seg of segments) {
+          if (seg === "..") {
+            targetPath.pop();
+          } else if (seg !== ".") {
+            targetPath.push(seg);
+          }
+        }
+
+        const finalPathStr = targetPath.join("/").toLowerCase();
+
+        const isRoot = finalPathStr === "" || finalPathStr === "home";
+        const normalizedContext = isRoot ? "" : finalPathStr;
+
+        if (validRoutes.includes(normalizedContext)) {
+          if (normalizedContext === currentPath.join("/").toLowerCase()) {
+            return `Already in C:\\Chimairel\\${currentDirectory}`;
+          }
+
+          const route = normalizedContext === "" ? "/" : `/${normalizedContext}`;
           setTimeout(() => router.push(route), 500);
           return `Navigating to ${route === "/" ? "root" : route} directory...`;
         }
